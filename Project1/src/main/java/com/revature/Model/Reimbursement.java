@@ -2,8 +2,8 @@ package com.revature.Model;
 
 public class Reimbursement {
 	private int id;
-	//Author;
-	//Resolver;
+	private int Author;
+	private int Resolver;
 	private String description;
 	private Type type;
 	private Status status;
@@ -14,14 +14,23 @@ public class Reimbursement {
 	}
 	
 	
-	public Reimbursement(int id, String description, Type type, Status status, String amount) {
+	
+
+
+	public Reimbursement(int id, int author, int resolver, String description, Type type, Status status,
+			String amount) {
 		super();
 		this.id = id;
+		Author = author;
+		Resolver = resolver;
 		this.description = description;
 		this.type = type;
 		this.status = status;
 		this.amount = amount;
 	}
+
+
+
 
 
 	public int getId() {
@@ -30,6 +39,39 @@ public class Reimbursement {
 	public void setId(int id) {
 		this.id = id;
 	}
+	
+	public int getAuthor() {
+		return Author;
+	}
+
+
+
+
+
+	public void setAuthor(int author) {
+		Author = author;
+	}
+
+
+
+
+
+	public int getResolver() {
+		return Resolver;
+	}
+
+
+
+
+
+	public void setResolver(int resolver) {
+		Resolver = resolver;
+	}
+
+
+
+
+
 	public String getDescription() {
 		return description;
 	}

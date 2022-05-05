@@ -1,17 +1,17 @@
 package com.revature.Model;
 
-public class Users {
+public class User {
 	private int id;
 	private String userName;
 	private String passWord;
-	private Roles role;
+	private Role role;
 	
-	public Users() {
+	public User() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
-	public Users(int id, String userName, String passWord, Roles role) {
+	public User(int id, String userName, String passWord, Role role) {
 		super();
 		this.id = id;
 		this.userName = userName;
@@ -43,11 +43,11 @@ public class Users {
 		this.passWord = passWord;
 	}
 
-	public Roles getRole() {
+	public Role getRole() {
 		return role;
 	}
 
-	public void setRole(Roles role) {
+	public void setRole(Role role) {
 		this.role = role;
 	}
 
