@@ -1,6 +1,7 @@
 package com.revature.Service;
 
 import java.util.List;
+import java.util.Scanner;
 
 import com.revature.Model.Reimbursement;
 import com.revature.Model.Role;
@@ -11,8 +12,9 @@ import com.revature.Service.User_Service;
 
 public class CLI_Menu_Service {//what is rService check other pics
 	///////////////////////////
+	Scanner scan = new Scanner(System.in);
 	public String fetchInput() {
-		return scan.NextLine().split(" ")[0];//research if regex: is needed
+		return scan.nextLine().split(" ")[0];//research if regex: is needed
 	}
 	/////////////////////////////
 	public int promptSelection(int ...validEntries) {
