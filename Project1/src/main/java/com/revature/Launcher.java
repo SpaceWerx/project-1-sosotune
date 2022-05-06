@@ -6,14 +6,14 @@ public class Launcher {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		Scanner stdin = new Scanner(System.in);
-		String input = stdin.nextLine();
+		Scanner scan = new Scanner(System.in);
+		String input = scan.nextLine();
 		
 		while(!input.equals("quit")) {
 			System.out.println("enter next");
-			input = stdin.nextLine();
+			input = scan.nextLine();
 		}
-		stdin.close();
+		scan.close();
 	}
 
 }

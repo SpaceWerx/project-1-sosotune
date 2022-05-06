@@ -7,7 +7,7 @@ public class Reimbursement {
 	private String description;
 	private Type type;
 	private Status status;
-	private String amount;
+	private double amount;
 	public Reimbursement() {
 		super();
 		// TODO Auto-generated constructor stub
@@ -95,10 +95,10 @@ public class Reimbursement {
 	public void setStatus(Status status) {
 		this.status = status;
 	}
-	public String getAmount() {
+	public double getAmount() {
 		return amount;
 	}
-	public void setAmount(String amount) {
+	public void setAmount(double amount) {
 		this.amount = amount;
 	}
 	
