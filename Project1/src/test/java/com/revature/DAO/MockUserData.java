@@ -1,8 +1,11 @@
-package com.revature.Model;
+package com.revature.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.revature.Model.Role;
 import com.revature.Model.User;
+
 
 public class MockUserData {
 	private final List<User> users = new ArrayList<>();

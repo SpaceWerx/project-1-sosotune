@@ -1,7 +1,11 @@
-package com.revature.Model;
+package com.revature.DAO;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import com.revature.Model.Reimbursement;
+import com.revature.Model.Status;
+import com.revature.Model.Type;
 
 public class MockReimbursementData {
 	private final List<Reimbursement> reimbursements = new ArrayList<>();
