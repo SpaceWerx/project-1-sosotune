@@ -11,6 +11,7 @@ import com.revature.Model.User;
 import com.revature.Service.User_Service;
 
 public class CLI_Menu_Service {//what is rService check other pics
+	Reimbursement_Service rService = new Reimbursement_Service();
 	///////////////////////////
 	Scanner scan = new Scanner(System.in);
 	public String fetchInput() {
@@ -92,7 +93,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 	/////////////////////////////////////////////////////////
 	public void displayPreviousRequest(User employee) {
 		
-		List<Reimbursement> reimbursements = rService.getReimbursementsByAuthor(employee.getId());
+		List<Reimbursement> reimbursements = rService.getReimbursementByAuthor(employee.getId());
 		
 		if(reimbursements.isEmpty()) {
 			System.out.println("No Previous Request..");
@@ -212,9 +213,9 @@ public class CLI_Menu_Service {//what is rService check other pics
 			System.out.println("Please enter the ID of the Reimbursement you wish to process.");
 			
 			int selection = promptSelection(ids);
-			Reimbursement reimbursementToBeProcessed = rService.gtReimbursementById(selection);
+			Reimbursement reimbursementToBeProcessed = rService.getReimbursementById(selection);
 			System.out.println("Processing reimbursement #" + reimbursementToBeProcessed.getId());
-			System.out.println("Details\nAuthor: " + User_Service.getUserById(reimbursementToBeProcessed.getAuthor()).getUserName() 
+			System.out.println("Details\nAuthor: " + User_Service.getUserById(reimbursementToBeProcessed.getAuthor()).getUserName()
 					+ "\nAmount: " + reimbursementToBeProcessed.getAmount()
 					+ "\nDescription: " + reimbursementToBeProcessed.getDescription());
 			System.out.println("PLEASE ENTER THE NUMBER OF YOUR CHOICE");

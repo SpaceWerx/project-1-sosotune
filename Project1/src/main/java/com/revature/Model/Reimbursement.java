@@ -18,7 +18,7 @@ public class Reimbursement {
 
 
 	public Reimbursement(int id, int author, int resolver, String description, Type type, Status status,
-			String amount) {
+			double amount) {
 		super();
 		this.id = id;
 		Author = author;

@@ -4,13 +4,16 @@ import java.util.List;
 import com.revature.Model.*;
 
 public class User_Service {
-	public void getUser(String userName){
+	public User getUser(String userName){
+		return null;
 	
 	}
 	public User getUserById(int id) {
+		return null;
 		
 	}
-	public void getAllUsers(List<User> users) {
+	public List<User> getAllUsers(List<User> users) {
+		return users;
 		
 	}
 	public void idExists(int id) {
@@ -18,6 +21,7 @@ public class User_Service {
 	}
 	
 	public List<User> getByRole(Role role) {
+		return null;
 		
 	}
 
