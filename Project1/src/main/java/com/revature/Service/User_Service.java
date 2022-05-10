@@ -4,7 +4,7 @@ import java.util.List;
 import com.revature.Model.*;
 
 public class User_Service {
-	public User getUser(String userName){
+	public User getUserByUsername(String username){
 		return null;
 	
 	}

@@ -206,7 +206,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			for (int i = 0; i< reimbursements.size(); i++) {
 				Reimbursement r = reimbursements.get(i);
 				User author = User_Service.getUserById(r.getAuthor());
-				System.out.println(r.getId() + " -> " + author.getUserName() + " : $" + r.getAmount());
+				System.out.println(r.getId() + " -> " + author.getUsername() + " : $" + r.getAmount());
 				ids[i] = r.getId();
 			}
 			
@@ -215,7 +215,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			int selection = promptSelection(ids);
 			Reimbursement reimbursementToBeProcessed = rService.getReimbursementById(selection);
 			System.out.println("Processing reimbursement #" + reimbursementToBeProcessed.getId());
-			System.out.println("Details\nAuthor: " + User_Service.getUserById(reimbursementToBeProcessed.getAuthor()).getUserName()
+			System.out.println("Details\nAuthor: " + User_Service.getUserById(reimbursementToBeProcessed.getAuthor()).getUsername()
 					+ "\nAmount: " + reimbursementToBeProcessed.getAmount()
 					+ "\nDescription: " + reimbursementToBeProcessed.getDescription());
 			System.out.println("PLEASE ENTER THE NUMBER OF YOUR CHOICE");
@@ -272,7 +272,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 		boolean employeePortal = true;
 		
 		System.out.println("---------------------------------------");
-		System.out.println("Welcom to the Employee Portal, " + employee.getUserName());
+		System.out.println("Welcom to the Employee Portal, " + employee.getUsername());
 		System.out.println("---------------------------------------");
 		System.out.println();
 		
@@ -305,7 +305,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 		boolean managerPortal = true;
 		
 		System.out.println("---------------------------------------");
-		System.out.println("Welcom to the Manager Portal, " + manager.getUserName());
+		System.out.println("Welcom to the Manager Portal, " + manager.getUsername());
 		System.out.println("---------------------------------------");
 		System.out.println();
 		
