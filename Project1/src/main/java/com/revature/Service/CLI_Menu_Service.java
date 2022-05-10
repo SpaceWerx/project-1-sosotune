@@ -1,6 +1,7 @@
 package com.revature.Service;
 
 import java.util.List;
+
 import java.util.Scanner;
 
 import com.revature.Model.Reimbursement;
@@ -68,7 +69,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 		System.out.println("PLEASE ENTER THE NUMBER OF YOUR CHOICE");
 		
 		for(User u : users){
-			System.out.println(u.getId() + " -> " + u.getUserName());
+			System.out.println(u.getId() + " -> " + u.getUsername());
 		}
 		
 		System.out.println("0 -> Return to Main Menu");
@@ -82,10 +83,10 @@ public class CLI_Menu_Service {//what is rService check other pics
 		User employee = User_Service.getUserById(userChoice);//change in userservice method body
 		
 		if(role == Role.MANAGER) {
-			System.out.println("Opening Manager Portal for " + employee.getUserName());
+			System.out.println("Opening Manager Portal for " + employee.getUsername());
 			displayFinanceManagerMenu(employee);
 		} else {
-			System.out.println("Opening Employee Portal for " + employee.getUserName());
+			System.out.println("Opening Employee Portal for " + employee.getUsername());
 			displayEmployeeMenu(employee);
 		}
 		
@@ -190,7 +191,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 	public void processReimbursement(User manager) {
 		boolean processPortal = true;
 		System.out.println("---------------------------------------");
-		System.out.println("Welcome to the Manager Processing Portal" + manager.getUserName());
+		System.out.println("Welcome to the Manager Processing Portal" + manager.getUsername());
 		System.out.println("---------------------------------------");
 		System.out.println();
 		
