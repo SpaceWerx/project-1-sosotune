@@ -13,7 +13,7 @@ import com.revature.Model.Status;
 import com.revature.Model.Type;
 import com.revature.Utility.ConnectionFactoryUtility;
 
-public class Reimbursement_DAO {
+public class ReimbursementDAO {
 	
 	public void update(Reimbursement unprocessedReimbursement) {
 		

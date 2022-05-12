@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.revature.Model.*;
 
-public class User_Service {
+public class UserService {
 	private final static List<User> users = new ArrayList<>();
 	
 	
@@ -16,14 +16,14 @@ public class User_Service {
 		}
 		return null;
 	}
-	public static User getUserById(int id) {
+	public User getUserById(int id) {
 		for (User user : users) {
 			if (user.getId() == id) {
 				return user;
 			}
 		}
-		return null;
 		
+		return null;
 	}
 	
 	public List<User> getAllUsers(List<User> users) {

@@ -2,8 +2,8 @@ package com.revature.Model;
 
 public class Reimbursement {
 	private int id;
-	private int Author;
-	private int Resolver;
+	private int author;
+	private int resolver;
 	private String description;
 	private Type type;
 	private Status status;
@@ -21,8 +21,23 @@ public class Reimbursement {
 			double amount) {
 		super();
 		this.id = id;
-		Author = author;
-		Resolver = resolver;
+		this.author = author;
+		this.resolver = resolver;
+		this.description = description;
+		this.type = type;
+		this.status = status;
+		this.amount = amount;
+	}
+	
+	
+
+
+
+
+	public Reimbursement(int id, int author, String description, Type type, Status status, double amount) {
+		super();
+		this.id = id;
+		this.author = author;
 		this.description = description;
 		this.type = type;
 		this.status = status;
@@ -41,7 +56,7 @@ public class Reimbursement {
 	}
 	
 	public int getAuthor() {
-		return Author;
+		return author;
 	}
 
 
@@ -49,7 +64,7 @@ public class Reimbursement {
 
 
 	public void setAuthor(int author) {
-		Author = author;
+		this.author = author;
 	}
 
 
@@ -57,7 +72,7 @@ public class Reimbursement {
 
 
 	public int getResolver() {
-		return Resolver;
+		return resolver;
 	}
 
 
@@ -65,7 +80,7 @@ public class Reimbursement {
 
 
 	public void setResolver(int resolver) {
-		Resolver = resolver;
+		this.resolver = resolver;
 	}
 
 

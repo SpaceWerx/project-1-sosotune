@@ -12,7 +12,7 @@ import com.revature.Model.User;
 import com.revature.Service.User_Service;
 
 public class CLI_Menu_Service {//what is rService check other pics
-	Reimbursement_Service rService = new Reimbursement_Service();
+	ReimbursementService rService = new ReimbursementService();
 	///////////////////////////
 	Scanner scan = new Scanner(System.in);
 	public String fetchInput() {
@@ -57,7 +57,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 	}
 	/////////////////////////////////////////////
 	public void handlePortal(Role role) {
-		List<User> users = User_Service.getByRole(role);
+		List<User> users = UserService.getByRole(role);
 		
 		int[] ids = new int[users.size() +1];
 		ids[users.size()] = 0;
@@ -80,7 +80,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 		if (userChoice == 0) {
 			return;
 		}
-		User employee = User_Service.getUserById(userChoice);//change in userservice method body
+		User employee = userService.getUserById(userChoice);//change in userservice method body
 		
 		if(role == Role.MANAGER) {
 			System.out.println("Opening Manager Portal for " + employee.getUsername());
@@ -206,7 +206,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			int[] ids = new int[reimbursements.size()];
 			for (int i = 0; i< reimbursements.size(); i++) {
 				Reimbursement r = reimbursements.get(i);
-				User author = User_Service.getUserById(r.getAuthor());
+				User author = UserService.getUserById(r.getAuthor());
 				System.out.println(r.getId() + " -> " + author.getUsername() + " : $" + r.getAmount());
 				ids[i] = r.getId();
 			}
@@ -216,7 +216,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			int selection = promptSelection(ids);
 			Reimbursement reimbursementToBeProcessed = rService.getReimbursementById(selection);
 			System.out.println("Processing reimbursement #" + reimbursementToBeProcessed.getId());
-			System.out.println("Details\nAuthor: " + User_Service.getUserById(reimbursementToBeProcessed.getAuthor()).getUsername()
+			System.out.println("Details\nAuthor: " + UserService.getUserById(reimbursementToBeProcessed.getAuthor()).getUsername()
 					+ "\nAmount: " + reimbursementToBeProcessed.getAmount()
 					+ "\nDescription: " + reimbursementToBeProcessed.getDescription());
 			System.out.println("PLEASE ENTER THE NUMBER OF YOUR CHOICE");

@@ -2,7 +2,7 @@ package com.revature.Service;
 
 import com.revature.Model.User;
 
-public class Auth_Service {
+public class AuthService {
 
 	public int register(User userToBeRegistered) {
 		
