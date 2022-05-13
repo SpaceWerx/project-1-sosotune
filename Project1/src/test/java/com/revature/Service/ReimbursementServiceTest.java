@@ -1,4 +1,4 @@
-package com.revature.model;
+package com.revature.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 

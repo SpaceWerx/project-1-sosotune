@@ -2,6 +2,7 @@ package com.revature.Service;
 
 import java.util.List;
 
+
 import java.util.Scanner;
 
 import com.revature.Model.Reimbursement;
@@ -9,10 +10,11 @@ import com.revature.Model.Role;
 import com.revature.Model.Status;
 import com.revature.Model.Type;
 import com.revature.Model.User;
-import com.revature.Service.User_Service;
+import com.revature.Service.UserService;
 
 public class CLI_Menu_Service {//what is rService check other pics
 	ReimbursementService rService = new ReimbursementService();
+	UserService userService = new UserService();
 	///////////////////////////
 	Scanner scan = new Scanner(System.in);
 	public String fetchInput() {
@@ -206,7 +208,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			int[] ids = new int[reimbursements.size()];
 			for (int i = 0; i< reimbursements.size(); i++) {
 				Reimbursement r = reimbursements.get(i);
-				User author = UserService.getUserById(r.getAuthor());
+				User author = userService.getUserById(r.getAuthor());
 				System.out.println(r.getId() + " -> " + author.getUsername() + " : $" + r.getAmount());
 				ids[i] = r.getId();
 			}
@@ -216,7 +218,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			int selection = promptSelection(ids);
 			Reimbursement reimbursementToBeProcessed = rService.getReimbursementById(selection);
 			System.out.println("Processing reimbursement #" + reimbursementToBeProcessed.getId());
-			System.out.println("Details\nAuthor: " + UserService.getUserById(reimbursementToBeProcessed.getAuthor()).getUsername()
+			System.out.println("Details\nAuthor: " + userService.getUserById(reimbursementToBeProcessed.getAuthor()).getUsername()
 					+ "\nAmount: " + reimbursementToBeProcessed.getAmount()
 					+ "\nDescription: " + reimbursementToBeProcessed.getDescription());
 			System.out.println("PLEASE ENTER THE NUMBER OF YOUR CHOICE");
@@ -337,4 +339,36 @@ public class CLI_Menu_Service {//what is rService check other pics
 		}
 		
 	}
+	//////////////////////////////
+	public void displayLoginMenu() {
+		Scanner sc = new Scanner(System.in);
+		AuthService x = new AuthService();
+		boolean accountFound = false;
+		
+		System.out.println("---------------------------------------");
+		System.out.println("Welcom to the Login Portal") ;
+		System.out.println("---------------------------------------");
+		System.out.println();
+		
+		
+		
+		while (accountFound != true) {
+			System.out.println("Please enter your username");
+			String username = sc.nextLine();
+			System.out.println("Please enter your password");
+			String password = sc.nextLine();
+			if (x.login(username, password)!= null) {
+				accountFound = true;
+				displayMenu();
+			} else {
+				System.out.println("Account not found re-enter username and password");
+			}
+			
+		}
+		
+		
+	}
+	////////////////////////////////
+	public void displayRegisterMenu() {}
+	
 }

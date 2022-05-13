@@ -50,7 +50,7 @@ public class UserDAO {
 	
 	/////////////////////////////////////////////////////////////////
 	
-	public User getUserByUsername(String username) {
+	public User getByUsername(String username) {
 		
 try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			String sql = "select * from ers_user where username = ?";
