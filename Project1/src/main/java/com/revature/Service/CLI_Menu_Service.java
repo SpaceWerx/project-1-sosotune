@@ -341,7 +341,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 	}
 	//////////////////////////////
 	public void displayLoginMenu() {
-		Scanner sc = new Scanner(System.in);
+		
 		AuthService x = new AuthService();
 		boolean accountFound = false;
 		
@@ -354,9 +354,9 @@ public class CLI_Menu_Service {//what is rService check other pics
 		
 		while (accountFound != true) {
 			System.out.println("Please enter your username");
-			String username = sc.nextLine();
+			String username = scan.nextLine();
 			System.out.println("Please enter your password");
-			String password = sc.nextLine();
+			String password = scan.nextLine();
 			if (x.login(username, password)!= null) {
 				accountFound = true;
 				displayMenu();
