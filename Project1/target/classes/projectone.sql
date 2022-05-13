@@ -5,7 +5,7 @@ password VARCHAR(250) NOT NULL,
 role VARCHAR(250) NOT NULL
 );
 
-CREAT TABLE ers_reimbursements(
+CREATE TABLE ers_reimbursements(
 id SERIAL PRIMARY KEY,
 author INT NOT NULL,
 resolver INT,

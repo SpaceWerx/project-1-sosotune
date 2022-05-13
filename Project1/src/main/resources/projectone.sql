@@ -5,7 +5,7 @@ password VARCHAR(250) NOT NULL,
 role VARCHAR(250) NOT NULL
 );
 
-CREAT TABLE ers_reimbursements(
+CREATE TABLE ers_reimbursements(
 id SERIAL PRIMARY KEY,
 author INT NOT NULL,
 resolver INT,
@@ -16,7 +16,7 @@ amount FLOAT NOT NULL,
 
 CONSTRAINT fk_author
 	FOREIGN KEY (author)
-		REFERENCES ers_users(id)
+		REFERENCES ers_users(id),
 CONSTRAINT fk_resolver
 	FOREIGN KEY (resolver)
 		REFERENCES ers_users(id)
