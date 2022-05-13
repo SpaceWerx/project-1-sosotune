@@ -3,10 +3,12 @@ package com.revature.Service;
 import com.revature.Model.User;
 
 public class AuthService {
+	
+	//UserDAO userDAO = new UserDAO();
 
 	public int register(User userToBeRegistered) {
 		
-		if(userDAO.getByUserName(userToBeRegistered.getUserName()) != null) {
+		if(userDAO.getByUserName(userToBeRegistered.getUsername()) != null) {
 			
 			throw new NullPointerException("Username is arleady taken");
 		}

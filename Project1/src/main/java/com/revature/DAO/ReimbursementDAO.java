@@ -1,6 +1,7 @@
 package com.revature.DAO;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -50,9 +51,9 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 			
 			preparedStatement.setInt(1, reimbursementToBeSubmitted.getAuthor());///check parameterindex
 			preparedStatement.setString(2, reimbursementToBeSubmitted.getDescription());
-			preparedStatement.setObject(2, reimbursementToBeSubmitted.getType().name());
-			preparedStatement.setObject(2, reimbursementToBeSubmitted.getStatus().name());
-			preparedStatement.setObject(2, reimbursementToBeSubmitted.getAmount());
+			preparedStatement.setObject(3, reimbursementToBeSubmitted.getType().name());
+			preparedStatement.setObject(4, reimbursementToBeSubmitted.getStatus().name());
+			preparedStatement.setDouble(5, reimbursementToBeSubmitted.getAmount());
 			
 			ResultSet resultSet;
 			
