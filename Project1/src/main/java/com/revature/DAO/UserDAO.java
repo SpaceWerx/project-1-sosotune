@@ -113,7 +113,7 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
 			List<User> users = new ArrayList<>();
 			
-			String sql = "select * from ers_user";
+			String sql = "select * from ers_users";
 			
 			Statement statement = connection.createStatement();
 			
