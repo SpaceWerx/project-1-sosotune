@@ -2,52 +2,43 @@ package com.revature.Service;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.revature.DAO.UserDAO;
 import com.revature.Model.*;
 
 public class UserService {
-	private final static List<User> users = new ArrayList<>();
+	UserDAO userDAO = new UserDAO();
 	
 	
 	public User getUserByUsername(String username){
-		for (User user : users) {
-			if (user.getUsername() == username) {
-				return user;
-			}
-		}
-		return null;
+		return userDAO.getByUsername(username);
 	}
 	public User getUserById(int id) {
-		for (User user : users) {
-			if (user.getId() == id) {
-				return user;
-			}
-		}
-		
-		return null;
+		return userDAO.getUserbyId(id);
 	}
 	
 	public List<User> getAllUsers(List<User> users) {
-		return users;
+		return userDAO.getAllUsers();
 		
 	}
+	////
 	public void idExists(int id) {
-		for (User user: users) {
-			if(user.getId()==id) {
-				System.out.println("Id exists.");
+		for(User user : userDAO.getAllUsers()) {
+			if(user.getId()== id) {
+				System.out.println("This ID exists.");
 				break;
 			}
 		}
-		System.out.println("Id does not exist");
-		
+		System.out.println("This ID does not exist.");
 	}
 	
-	public static List<User> getByRole(Role role) {
-		for(User user: users) {
-			if(user.getRole() == role) {
-			users.add(user);
+	public  List<User> getByRole(Role role) {
+		List<User> byRole = new ArrayList<>();
+		for (User user : userDAO.getAllUsers()) {
+			if (user.getRole() == role) {
+				byRole.add(user);
 			}
 		}
-		return users;
+		return byRole;
 		
 		
 	}
