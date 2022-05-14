@@ -16,14 +16,14 @@ amount FLOAT NOT NULL,
 
 CONSTRAINT fk_author
 	FOREIGN KEY (author)
-		REFERENCES ers_users(id)
+		REFERENCES ers_users(id),
 CONSTRAINT fk_resolver
 	FOREIGN KEY (resolver)
 		REFERENCES ers_users(id)
 );
 
 INSERT INTO ers_users (username, password, role)
-VALUES('default', 'guest', 'Employee')("admin', 'admin', 'Manager');
+VALUES('default', 'guest', 'EMPLOYEE'),('admin', 'admin', 'MANAGER');
 
 --next is used to delete tables and files associated
 

@@ -360,15 +360,38 @@ public class CLI_Menu_Service {//what is rService check other pics
 			if (x.login(username, password)!= null) {
 				accountFound = true;
 				displayMenu();
+				break;
 			} else {
 				System.out.println("Account not found re-enter username and password");
 			}
+			
 			
 		}
 		
 		
 	}
 	////////////////////////////////
-	public void displayRegisterMenu() {}
+	public void displayRegisterMenu() {
+		AuthService x = new AuthService();
+		//research and test to see what happens if user exist
+		
+		System.out.println("---------------------------------------");
+		System.out.println("Welcom to the Registration Portal") ;
+		System.out.println("---------------------------------------");
+		System.out.println();
+		
+		User userToBeRegistered = new User();
+		System.out.println("Please enter a username.");
+		String username = scan.nextLine();
+		System.out.println("Please enter a password.");
+		String password = scan.nextLine();
+		userToBeRegistered.setUsername(username);
+		userToBeRegistered.setPassword(password);
+		userToBeRegistered.setRole(Role.EMPLOYEE);
+		x.register(userToBeRegistered);
+		displayLoginMenu();
+		
+		
+	}
 	
 }

@@ -23,7 +23,7 @@ CONSTRAINT fk_resolver
 );
 
 INSERT INTO ers_users (username, password, role)
-VALUES('default', 'guest', 'Employee')("admin', 'admin', 'Manager');
+VALUES('default', 'guest', 'EMPLOYEE'),('admin', 'admin', 'MANAGER');
 
 --next is used to delete tables and files associated
 

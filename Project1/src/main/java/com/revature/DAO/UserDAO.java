@@ -23,7 +23,7 @@ public class UserDAO {
 		
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
-			String sql = "select * from ers_user where id = ?";
+			String sql = "select * from ers_users where id = ?";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
@@ -53,7 +53,7 @@ public class UserDAO {
 	public User getByUsername(String username) {
 		
 try(Connection connection = ConnectionFactoryUtility.getConnection()){
-			String sql = "select * from ers_user where username = ?";
+			String sql = "select * from ers_users where username = ?";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			preparedStatement.setString(1, username);
@@ -83,7 +83,7 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
 			String sql = "INSERT INTO ers_users (id, username, passsword, role)" 
 			+ "VALUES (?, ?, ?::role)"
-			+ "RETURNING ers_user.id";
+			+ "RETURNING ers_users.id";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
