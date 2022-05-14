@@ -127,7 +127,7 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 						resultSet.getInt( "id"),
 						resultSet.getString("username"),
 						resultSet.getString("password"),	
-						Role.valueOf(resultSet.getString("status"))
+						Role.valueOf(resultSet.getString("role"))
 						));
 			}
 			
@@ -137,8 +137,10 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
 			System.out.println("Something went wrong with the database!");
 			sqlException.printStackTrace();
+			
 		}
 		return null;
+		
 	}
 	//////////////////////////////////////////////////////////////////////
 	

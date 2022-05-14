@@ -59,7 +59,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 	}
 	/////////////////////////////////////////////
 	public void handlePortal(Role role) {
-		List<User> users = UserService.getByRole(role);
+		List<User> users = userService.getByRole(role);
 		
 		int[] ids = new int[users.size() +1];
 		ids[users.size()] = 0;
