@@ -20,7 +20,7 @@ public class ReimbursementDAO {
 		
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
-			String sql = "UPDATE ers_reimbursements SET rsolver = ?, status = ?::status WHERE id = ?";
+			String sql = "UPDATE ers_reimbursements SET resolver = ?, status = ?::status WHERE id = ?";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
@@ -74,7 +74,7 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 	public List<Reimbursement> getReimbursementsByUser(int userId){
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
-			String sql = "select * from ers_reimbursement where author = ?";
+			String sql = "select * from ers_reimbursements where author = ?";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
@@ -110,7 +110,7 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 	public Reimbursement getReimbursementsById(int id){
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
-			String sql = "select * from ers_reimbursement where id = ?";
+			String sql = "select * from ers_reimbursements where id = ?";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
@@ -142,37 +142,17 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 	/////////////////////////////////////////
 	
 	public List<Reimbursement> getByStatus(Status status){
-		try(Connection connection = ConnectionFactoryUtility.getConnection()){
-			
-			String sql = "select * from ers_reimbursement where statuc = ?::status";
-			
-			PreparedStatement preparedStatement = connection.prepareStatement(sql);
-			
-			preparedStatement.setString(1, status.toString());
-			
-			ResultSet resultSet = preparedStatement.executeQuery();
-			
-			List<Reimbursement> reimbursements = new ArrayList<>();
-			
-			while(resultSet.next()) {
-				
-				reimbursements.add(new Reimbursement(
-						resultSet.getInt( "id"),
-						resultSet.getInt("author"),
-						resultSet.getInt("resolver"),
-						resultSet.getString("description"),
-						Type.valueOf(resultSet.getString("type")),
-						Status.valueOf(resultSet.getString("status")),
-						resultSet.getDouble("amount")
-						));
+		List<Reimbursement> byStatus = new ArrayList<>();
+		for(Reimbursement r: getAllReimbursements()) {
+			if(r.getStatus() == status) {
+				byStatus.add(r);
 			}
-			return reimbursements;
-		} catch (SQLException e) {
-			
-			System.out.println("Something went wrong obtaining the reimbursemetns!");
-			e.printStackTrace();
 		}
-		return null;
+		for(Reimbursement bs : byStatus) {
+			System.out.println( bs.getAuthor() + " " + bs.getType() + " " + bs.getDescription() 
+			+ " " + bs.getAmount() + " " + bs.getStatus());
+		}
+		return byStatus;
 	}
 	
 	///////////////////////////////////////////////
@@ -183,7 +163,7 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 			
 			List<Reimbursement> reimbursements = new ArrayList<>();
 			
-			String sql = "select * from ers_reimbursement";
+			String sql = "select * from ers_reimbursements";
 			
 			Statement statement = connection.createStatement();
 			

@@ -16,7 +16,7 @@ public class UserService {
 		return userDAO.getUserbyId(id);
 	}
 	
-	public List<User> getAllUsers(List<User> users) {
+	public List<User> getAllUsers() {
 		return userDAO.getAllUsers();
 		
 	}

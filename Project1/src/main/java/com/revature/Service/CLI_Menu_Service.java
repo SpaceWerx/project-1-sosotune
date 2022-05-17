@@ -103,7 +103,7 @@ public class CLI_Menu_Service {//what is rService check other pics
 			System.out.println("Returning to Previous Menu...");
 		}
 		for (Reimbursement r : reimbursements) {
-			System.out.println(r);
+			System.out.println( r.getDescription() + " " + r.getAmount() +" "+ r.getStatus()+ " " + r.getResolver());
 		}
 	}
 	///////////////////////////////////////////////////////////////

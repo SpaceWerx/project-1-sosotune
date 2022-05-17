@@ -1,6 +1,7 @@
 package com.revature.Service;
 
 import java.util.ArrayList;
+
 import java.util.List;
 
 import com.revature.DAO.ReimbursementDAO;
@@ -13,6 +14,7 @@ public class ReimbursementService {
 	
 	ReimbursementDAO reimbursementDAO = new ReimbursementDAO();
 	UserService userService = new UserService();
+	
 	
 	
 	public int submitReimbursement(Reimbursement reimbursementToBeSubmitted){
