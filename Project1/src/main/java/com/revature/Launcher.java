@@ -4,7 +4,10 @@ import java.sql.Connection;
 import java.sql.SQLException;
 import java.util.Scanner;
 
+import com.revature.Controller.AuthController;
 import com.revature.Controller.EmployeeController;
+import com.revature.Controller.ReimbursementController;
+import com.revature.Controller.UserController;
 import com.revature.DAO.ReimbursementDAO;
 import com.revature.DAO.UserDAO;
 import com.revature.Model.Reimbursement;
@@ -19,7 +22,9 @@ public class Launcher {
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		EmployeeController ec = new EmployeeController();
+		UserController uc = new UserController();
+		AuthController ac = new AuthController();
+		ReimbursementController rc = new ReimbursementController();
 		try(Connection conn = ConnectionFactoryUtility.getConnection()){
 			System.out.println("Connection Successful :)");
 		} catch (SQLException e) {
@@ -37,17 +42,34 @@ public class Launcher {
 		//UserService userdao = new UserService();
 		//System.out.println(userdao.getAllUsers());
 		//System.out.println(userService.getByRole(Role.MANAGER));
+		
+		
 		CLI_Menu_Service options = new CLI_Menu_Service();
 		options.displayLoginMenu();
-//		Javalin app = Javalin.create(
-//			config -> {
-//				config.enableCorsForAllOrigins();
-//			}
-//		).start(3000);
-//		
-//		app.get("/employee", ec.getEmployeesHandler );
-//		
-//		app.post("/employee", ec.insertEmployeesHandler);
+		
+		
+		Javalin app = Javalin.create(
+			config -> {
+				config.enableCorsForAllOrigins();
+			}
+		).start(3000);
+		
+		app.post("/login", ac.getLoginHandler);
+		
+		app.post("/register", ac.getRegisterHandler);
+		
+		app.get("/user", uc.getUsersHandler );
+		
+		app.get("/id", uc.insertUserByIdHandler);
+		
+		app.get("/reimbursement", rc.getReimbursementHandler);
+		
+		app.post("/reimbursment", rc.submitHandler);
+		
+		app.get("/id",rc.getReimbursementById);
+		
+		app.put("/id", rc.processHandler);//check how to format id in parameters
+		
 	}
 
 }
