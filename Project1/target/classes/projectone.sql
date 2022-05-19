@@ -21,6 +21,7 @@ CONSTRAINT fk_resolver
 	FOREIGN KEY (resolver)
 		REFERENCES ers_users(id)
 );
+--changer to capital if there are issues
 
 INSERT INTO ers_users (username, password, role)
 VALUES('default', 'guest', 'EMPLOYEE'),('admin', 'admin', 'MANAGER');

@@ -2,6 +2,7 @@ package com.revature.Service;
 
 import java.util.ArrayList;
 
+
 import java.util.List;
 
 import com.revature.DAO.ReimbursementDAO;
@@ -14,6 +15,8 @@ public class ReimbursementService {
 	
 	ReimbursementDAO reimbursementDAO = new ReimbursementDAO();
 	UserService userService = new UserService();
+	
+	
 	
 	
 	
@@ -30,7 +33,7 @@ public class ReimbursementService {
 		}
 	}
 		
-	public Reimbursement update(Reimbursement unprocessedReimbursement, int resolver, Status updatedStatus) {
+	public Reimbursement update(Reimbursement unprocessedReimbursement, int resolver, Status status) {
 		
 		User manager = userService.getUserById(resolver);
 		
@@ -39,7 +42,7 @@ public class ReimbursementService {
 		} else {
 			
 			unprocessedReimbursement.setResolver(resolver);
-			unprocessedReimbursement.setStatus(updatedStatus);
+			unprocessedReimbursement.setStatus(status);
 			
 			reimbursementDAO.update(unprocessedReimbursement);
 			
