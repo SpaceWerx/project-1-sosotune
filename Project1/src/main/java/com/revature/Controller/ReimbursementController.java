@@ -16,6 +16,7 @@ public class ReimbursementController {
 	Reimbursement reimbursement = new Reimbursement();
 	ReimbursementDAO rDAO = new ReimbursementDAO();
 	ReimbursementService rService = new ReimbursementService();
+	
 	public Handler getReimbursementHandler = (ctx) -> {
 		
 		List<Reimbursement> allReim = rDAO.getAllReimbursements();
@@ -76,16 +77,18 @@ public class ReimbursementController {
 			try {
 				String reimbursementIdInput = ctx.pathParam("id");
 				int id = Integer.parseInt(reimbursementIdInput);
-				
+				String body = ctx.body();
 				String statusInput = ctx.formParam("status");
+				com.revature.Model.Status status = com.revature.Model.Status.valueOf(statusInput);
+				Gson gson = new Gson();
+				
 				
 				reimbursement = rService.getReimbursementById(id);
 				
 				if(reimbursement != null) {
 					
-					Reimbursement processedReimbursement = rService.update(reimbursement, userId, 
-							Status.valueOf(statusInput));
-					
+					Reimbursement processedReimbursement = gson.fromJson(body, Reimbursement.class);
+					rService.update(processedReimbursement, id, status);
 					ctx.status(202);
 					ctx.json(processedReimbursement);
 				} else {
@@ -104,6 +107,30 @@ public class ReimbursementController {
 			
 		}ctx.status(403);
 		ctx.result("Missing Current User Header with ID");	
+	};
+	
+	public Handler getByStatusHandler =(ctx)->{
+		
+		String statusParam = ctx.pathParam("status");
+		com.revature.Model.Status status = com.revature.Model.Status.valueOf(statusParam);
+		
+		List<Reimbursement> byStatus = rDAO.getByStatus(status);
+		Gson gson = new Gson();
+		String JSONObject = gson.toJson(byStatus);
+		
+		ctx.result(JSONObject);
+		ctx.status(200);
+		
+	};
+	public Handler getByAuthorMethod = (ctx) -> {
+		String idParam = ctx.pathParam("author");
+		int id = Integer.parseInt(idParam);
+		List<Reimbursement> byAuthor = rService.getReimbursementByAuthor(id);
+		Gson gson = new Gson();
+		String JSONObject= gson.toJson(byAuthor);
+		
+		ctx.result(JSONObject);
+		ctx.status(200);
 	};
 
 }
