@@ -41,10 +41,10 @@ public class ReimbursementController {
 		ctx.status(201);
 	};
 	public Handler getReimbursementById = (ctx) -> {
-		
+		String body = ctx.body();
 		try {
-			String idParam = ctx.pathParam("id");
-			int id = Integer.parseInt(idParam);
+			
+			int id = Integer.parseInt(body);
 			
 			reimbursement = rService.getReimbursementById(id);
 			

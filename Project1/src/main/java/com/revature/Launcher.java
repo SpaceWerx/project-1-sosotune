@@ -67,11 +67,11 @@ public class Launcher {
 		
 		app.get("/reimbursementservice", rc.getReimbursementHandler);//g2g
 		
-//		app.post("/submit", rc.submitHandler);
+		app.post("/submit", rc.submitHandler);//g2g
 		
-//		app.get("/reimbursement",rc.getReimbursementById);//workonsameissueasuserid
-//		
-//		app.put("/reimbursement", rc.processHandler);//check how to format id in parameters
+		app.get("/reimbursement",rc.getReimbursementById);//g2gaddedjacksondependencytomaven
+		
+//		app.put("/reimbursementupdate", rc.processHandler);//check how to format id in parameters
 		
 	}
 
