@@ -81,16 +81,17 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 	public int createUser(User user){
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			
-			String sql = "INSERT INTO ers_users (id, username, passsword, role)" 
+			String sql = "INSERT INTO ers_users (username, password, role)" 
 			+ "VALUES (?, ?, ?::role)"
 			+ "RETURNING ers_users.id";
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, user.getId());
-			preparedStatement.setString(2, user.getUsername());
-			preparedStatement.setString(3, user.getPassword());
-			preparedStatement.setObject(4, user.getRole().name());
+			
+			preparedStatement.setString(1, user.getUsername());
+			preparedStatement.setString(2, user.getPassword());
+			preparedStatement.setObject(3, user.getRole().name());
+			
 			
 			ResultSet resultSet;
 			

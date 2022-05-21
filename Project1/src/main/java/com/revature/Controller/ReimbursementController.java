@@ -70,12 +70,12 @@ public class ReimbursementController {
 	//work on processhandler
 	public Handler processHandler = (ctx) -> {
 		
-		String authHeader = ctx.header("Current-User");
+		String authHeader = ctx.header("id");
 		if(authHeader != null) {
 			
 			int userId = Integer.parseInt(authHeader);
 			try {
-				String reimbursementIdInput = ctx.pathParam("id");
+				String reimbursementIdInput = ctx.pathParam("resolver");
 				int id = Integer.parseInt(reimbursementIdInput);
 				String body = ctx.body();
 				String statusInput = ctx.formParam("status");

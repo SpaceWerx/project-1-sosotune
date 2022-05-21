@@ -35,11 +35,16 @@ public class AuthController {
 		String body = ctx.body();
 		Gson gson = new Gson();
 		
-		user = gson.fromJson(body, User.class);
-		userDAO.createUser(user);
+		User user = gson.fromJson(body, User.class);
+		if(user!= null) {
+			userDAO.createUser(user);
 		
-		ctx.result("User successfully added");
-		ctx.status(201);
+			ctx.result("User successfully added");
+			ctx.status(201);
+		}else {
+			ctx.result("User not created");
+			ctx.status(400);
+		}
 	};
 
 }

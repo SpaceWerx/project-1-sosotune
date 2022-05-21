@@ -56,10 +56,10 @@ public class Launcher {
 				config.enableCorsForAllOrigins();
 			}
 		).start(3000);
+		
+		app.post("/login", ac.getLoginHandler);//g2g
 //		
-//		app.post("/login", ac.getLoginHandler);
-//		
-//		app.post("/register", ac.getRegisterHandler);
+		app.post("/register", ac.getRegisterHandler);//g2g
 //		
 		app.get("/user", uc.getUsersHandler );//g2g
 		
@@ -71,7 +71,7 @@ public class Launcher {
 		
 		app.get("/reimbursement",rc.getReimbursementById);//g2gaddedjacksondependencytomaven
 		
-//		app.put("/reimbursementupdate", rc.processHandler);//check how to format id in parameters
+//		app.put("/reimbursementupdate", rc.processHandler);//need to rework this
 		
 	}
 
