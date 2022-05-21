@@ -67,6 +67,7 @@ public class ReimbursementService {
 		resolvedReimbursements.addAll(reimbursementDAO.getByStatus(Status.APPROVED));
 		resolvedReimbursements.addAll(reimbursementDAO.getByStatus(Status.DENIED));
 		
+
 		return resolvedReimbursements;
 		
 	}

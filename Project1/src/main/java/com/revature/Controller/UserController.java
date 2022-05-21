@@ -13,11 +13,11 @@ import io.javalin.http.Handler;
 public class UserController {
 	
 	UserService us = new UserService();
-	User user = new User();
+	User user;
 	
 	public Handler getUsersHandler = (ctx) ->{
 		
-		List<com.revature.Model.User> allUsers = us.getAllUsers();
+		List<User> allUsers = us.getAllUsers();
 		
 		Gson gson = new Gson();
 		
@@ -29,9 +29,9 @@ public class UserController {
 	};
 	
 	public Handler getUserByIdHandler = (ctx) ->{
-		String idParam = ctx.pathParam("id");
-		int id = Integer.parseInt(idParam);
+		String body = ctx.body();
 		
+		int id = Integer.parseInt(body);
 		user = us.getUserById(id);
 		Gson gson = new Gson();
 		String JSONObject = gson.toJson(user);

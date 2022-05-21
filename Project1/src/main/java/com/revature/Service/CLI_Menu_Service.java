@@ -185,9 +185,9 @@ public class CLI_Menu_Service {//what is rService check other pics
 			System.out.println("No Resolved Requests...");
 			System.out.println("Returning to Previous Menu...");
 		}
-		for(Reimbursement r: resolvedReimbursements) {
-			System.out.println(r);
-		}
+//		for(Reimbursement r: resolvedReimbursements) {
+//			System.out.println(r);
+//		}
 	}
 	//////////////////////////////////////////////
 	public void processReimbursement(User manager) {
