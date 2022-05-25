@@ -98,7 +98,7 @@ public class ReimbursementController {
 	};
 	public Handler getByAuthorMethod = (ctx) -> {
 		
-		List<Reimbursement> byAuthor = rService.getReimbursementByAuthor(ctx.sessionAttribute("currentUser"));
+		List<Reimbursement> byAuthor = rService.getReimbursementByAuthor(AuthController.currentUser);
 		Gson gson = new Gson();
 		String JSONObject= gson.toJson(byAuthor);
 		

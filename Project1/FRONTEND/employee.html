@@ -22,7 +22,7 @@
                 <div id="nav" class="container">
                     <img src="./assets/rev-logo.png" alt="revature logo">
                     <div class="d-flex">
-                        <a id="logout-anchor" href="./login.html"></a>
+                        <a id="logout-anchor" href="./login.html">
                         <button  id="logoutbutton" class="btn btn-outline-success">Logout</button>
                         </a>
                     </div>
@@ -43,31 +43,37 @@
                         </a>
                     </button>
                     <br>
+
+                </div id="tableRow" class="row">
+                <table id="display-table" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th >ID</th>
+                            <th >Type</th>
+                            <th >Description</th>
+                            <th >Amount</th>
+                            <th >Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reimbursementbody">
+                        
+                    </tbody>
+                </table>
+                <div>
                     <button id ="getreimbursements" class="btn btn-outline-dark">
                         <a id="submit-anchor" >
                             Show All Reimbursements
                         </a>
                     </button>
+
+
                 </div>
-                <table id="display-table" class="table table-stripped" hidden>
-                    <thead>
-                        <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Type</th>
-                            <th scope="col">Description</th>
-                            <th scope="col">Amount</th>
-                            <th scope="col">Status</th>
-                        </tr>
-                    </thead>
-                    <tbody id="display-table-body">
-                        
-                    </tbody>
-                </table>
                 <div id="message" hidden>Something went wrong</div>
             </div>
         </div>
+        <script src="employee.js"></script>
         </body>
         <script src="./server-requests.js"></script>
-        <script src="employee.js"></script>
+        
         </html>
         
