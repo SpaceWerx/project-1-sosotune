@@ -18,7 +18,7 @@ import com.revature.Utility.ConnectionFactoryUtility;
 
 
 public class UserDAO {
-	
+	//get users from repository by the id, called by userservice
 	public User getUserbyId(int id) {
 		
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
@@ -49,7 +49,7 @@ public class UserDAO {
 	}
 	
 	/////////////////////////////////////////////////////////////////
-	
+	//gets user by username called by userservice
 	public User getByUsername(String username) {
 		
 try(Connection connection = ConnectionFactoryUtility.getConnection()){
@@ -77,7 +77,7 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 	}
 	
 	////////////////////////////////////////////////////////
-	
+	//creates a user in database called by register in authservice
 	public int createUser(User user){
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){
 			

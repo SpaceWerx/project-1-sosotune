@@ -1,4 +1,5 @@
 package com.revature.Model;
+import com.revature.Controller.AuthController;
 
 public class Reimbursement {
 	private int id;
@@ -41,6 +42,20 @@ public class Reimbursement {
 		this.description = description;
 		this.type = type;
 		this.status = status;
+		this.amount = amount;
+	}
+	
+
+
+
+
+
+	public Reimbursement(String description, Type type, double amount) {
+		super();
+		this.author = AuthController.currentUser;
+		this.description = description;
+		this.type = type;
+		this.status = Status.PENDING;
 		this.amount = amount;
 	}
 

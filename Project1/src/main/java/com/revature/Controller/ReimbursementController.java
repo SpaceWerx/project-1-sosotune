@@ -40,7 +40,9 @@ public class ReimbursementController {
 		Gson gson = new Gson();
 		
 		Reimbursement reimbursement = gson.fromJson(body, Reimbursement.class);
+		reimbursement.setAuthor(AuthController.currentUser);
 		rDAO.create(reimbursement);
+		
 		
 		ctx.result("Reimbursement successfully added!");
 		ctx.status(201);

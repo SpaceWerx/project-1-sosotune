@@ -12,7 +12,7 @@ public class AuthController {
 	AuthService as = new AuthService();
 	UserDAO userDAO = new UserDAO();
 	User user = new User();
-	static int currentUser;
+	public static int currentUser;
 	User CurrentUser;
 //login for users, saves current user to session attribute to be used in other handlers.
 	public Handler getLoginHandler = (ctx) -> {
