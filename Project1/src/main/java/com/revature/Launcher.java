@@ -70,9 +70,11 @@ public class Launcher {
 		app.post("/submit", rc.submitHandler);//g2g
 		
 		app.get("/reimbursement",rc.getReimbursementById);//g2gaddedjacksondependencytomaven
+		app.get("/usersreimbursement", rc.getByAuthorMethod);
 		
 //		app.put("/reimbursementupdate", rc.processHandler);//need to rework this
 		
-	}
+		app.get("/status", rc.getByStatusHandler);//g2g
 
+	}
 }

@@ -13,6 +13,9 @@ header,
     max-height: 150px;
     max-width: 150px;
 }
+#display-form{
+    position:absolute
+}
 #bg {
     position: fixed;
     top: 0;
@@ -21,7 +24,7 @@ header,
     height: 100%
 }
 #bg img {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     right: 0;
@@ -47,12 +50,26 @@ header,
     padding:25px;
     text-align:center;
 }
-
+.form-container{
+    padding-left: 10%;
+    padding-right: 10%;
+}
+.input-group{
+    padding-bottom:10px;
+}
 #login-anchor{
     text-decoration: none;
     color: green;
 }
+#login-anchor:hover{
+    
+    color:white;
+}
 #register-anchor{
     text-decoration: none;
     color: blue;
+}
+#register-anchor:hover{
+    
+    color:white;
 }

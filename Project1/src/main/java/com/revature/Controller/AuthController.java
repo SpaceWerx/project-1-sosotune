@@ -12,18 +12,20 @@ public class AuthController {
 	AuthService as = new AuthService();
 	UserDAO userDAO = new UserDAO();
 	User user = new User();
-
+	User currentUser;
+//login for users, saves current user to session attribute to be used in other handlers.
 	public Handler getLoginHandler = (ctx) -> {
 		String body = ctx.body();
 		
 		Gson gson = new Gson();
 		
 		user = gson.fromJson(body, User.class);
-		
+		currentUser = userDAO.getByUsername(user.getUsername());
 		
 		if(as.login(user.getUsername(), user.getPassword()) != null) {
 			ctx.status(201);
 			ctx.result("Login Successful");
+			ctx.sessionAttribute("currentUser", currentUser.getId());
 			
 		}
 		else {
@@ -31,6 +33,7 @@ public class AuthController {
 			ctx.result("Password or username incorrect");
 		}
 	};
+	//Allows user to register and creates a new user in the database
 	public Handler getRegisterHandler = (ctx) -> {
 		String body = ctx.body();
 		Gson gson = new Gson();

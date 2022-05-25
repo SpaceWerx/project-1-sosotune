@@ -19,7 +19,7 @@
                     <img src="./assets/rev-logo.png" alt="revature logo">
                     <div class="d-flex">
                         <button class="btn btn-outline-success">
-                            <a id="logout-anchor" href="../login/login.html">
+                            <a id="logout-anchor" href="./login.html">
                                 Logout
                             </a>
                         </button>
@@ -36,7 +36,7 @@
         <div id="display">
             <h2 id="display-title">Reimbursement Submission Form</h2>
             <div class="form-container">
-                <form id="display-form">
+                <form id="submit-form">
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="typeInput">Type</label>
                         <select class="form-select" id="typeInput">
@@ -56,7 +56,9 @@
                         <span class="input-group-text">$</span>
                         <input type="number" class="form-control" id="amount" placeholder="e.g. 100.00" aria-Label="Amount (to the nearest dollar)">
                     </div>
-                    <div class="btn-group me-2" role="group" aria-Label="First group">
+                    <div class="btn-toolbar" role="toolbar" aria-Label="Toolbar with button-group">
+                    
+                        <div class="btn-group me-2" role="group" aria-Label="First group">
                         <button id="back-button" class="btn btn-outline-danger">
                             <a id="back-anchor" href="./employee.html">
                                 Back
@@ -66,7 +68,13 @@
                     <div class="btn-group me-2" role="group" aria-Label="Second group">
                         <button type="submit" id="submit-button" class="btn-outline-primary">Submit</button>
                     </div>
+                    </div>
+                    <div id="message" hidden>Something went wrong</div>
                 </form>
             </div>
         </div>
     </div>
+    </body>
+    <script src="./server-request.js"></script>
+    <script src="./submit.js"></script>
+    </html>

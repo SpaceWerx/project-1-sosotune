@@ -63,7 +63,7 @@ header,
 }
 #logout-anchor {
     text-decoration: none;
-    color: green;
+    color: black;
 }
 #logout-anchor:hover {
     color: white;
