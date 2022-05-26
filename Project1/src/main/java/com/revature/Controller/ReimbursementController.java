@@ -75,15 +75,25 @@ public class ReimbursementController {
 	};
 	
 	
-//	public Handler processHandler = (ctx) -> {
-//		String authHeader = ctx.header("Current-User");
-//		if(authHeader != null) {
-//			
-//			int userId = Integer
-//		}
-//		
-//	
-//	};
+	public Handler processHandler = (ctx) -> {
+		String body = ctx.body();
+		Gson gson = new Gson();
+		
+		Reimbursement reimbursement = gson.fromJson(body, Reimbursement.class);
+		int reimid = reimbursement.getId();
+		int id = AuthController.currentUser;
+		com.revature.Model.Status statusInput = reimbursement.getStatus();
+		reimbursement = rDAO.getReimbursementsById(reimid);
+		Reimbursement processedReimbursement = rService.update(reimbursement, id, statusInput);
+		if(processedReimbursement!=null) {
+			ctx.status(201);
+			ctx.result("reimbursement was updated");
+		}else {
+			ctx.status(400);
+		}
+		
+	
+	};
 	
 	public Handler getByStatusHandler =(ctx)->{
 		

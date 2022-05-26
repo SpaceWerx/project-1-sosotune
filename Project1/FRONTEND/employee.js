@@ -1,6 +1,6 @@
 
 document.getElementById("getreimbursements").addEventListener("click",getreimbursmentsbyid);
-
+//creates function to get reimbursement, user id is save on login to pull their reimbursements
 async function getreimbursmentsbyid(){
     let response = await fetch("http://localhost:3000/usersreimbursement", { 
         method:'GET',

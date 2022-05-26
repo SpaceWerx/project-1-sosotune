@@ -38,27 +38,22 @@
             <img src="./assets/main-background.jpg" alt="tech background">
         </div>
         
-        <table id="display-table" class="table table-stripped">
-            <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Type</th>
-                    <th scope="col">Description</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Status</th>
-                </tr>
-            </thead>
-        </table>
+        
         <div id="display">
             <h2 id="display-title">Reimbursement process Form</h2>
             <div class="form-container">
                 <form id="display-form">
+                    <div>
+                        <input type="number" class="form-control" id="reimid" placeholder="Reimbursment ID">
+
+                    </div>
+                    <br>
                     <div class="input-group mb-3">
                         <label class="input-group-text" for="typeInput">Type</label>
                         <select class="form-select" id="typeInput">
                             <option selected>Choose...</option>
-                            <option value="1">APPROVED</option>
-                            <option value="2">DENIED</option>
+                            <option value="APPROVED">APPROVED</option>
+                            <option value="DENIED">DENIED</option>
                             
                         </select>
                     </div>
@@ -70,12 +65,43 @@
                         </button>
                     </div>
                     <div class="btn-group me-2" role="group" aria-Label="Second group">
-                        <button type="submit" id="submit-button" class="btn-outline-primary">Submit</button>
+                        <button type="submit" id="submit-button" class="btn-outline-primary">
+                            <a id="submit-anchor" href="manager.html">
+                            Submit
+                            </a>
+                        </button>
                     </div>
-                </form>
+                <!--Allows reimbursement to be submitted id and status sent to backend to be updated-->
+                <div>
+                <table id="display-table" class="table table-stripped">
+                    <thead>
+                        <tr>
+                            <th >ID</th>
+                            <th >Author</th>
+                            <th >Resolver</th>
+                            <th >Type</th>
+                            <th >Description</th>
+                            <th >Amount</th>
+                            <th >Status</th>
+                        </tr>
+                    </thead>
+                    <tbody id="reimbursementbody">
+<!--shows all reimbursments in table format after click-->
+                    </tbody>
+                </table>
+                    <button id="getreimbursements" class="btn btn-outline-dark">
+                        <a id="getreimbursements-anchor">
+                            Get All Reimbursements
+                        </a>
+                    </button>
+                </div>
+                <!--gets all reimbursements in a list after click-->
+                
+            </form>
             </div>
         </div>
     </div>
     </body>
+    <script src = process.js></script>
     </html>
     <!--add fetch to get pending reimbursmeents

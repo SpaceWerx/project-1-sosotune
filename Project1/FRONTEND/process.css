@@ -48,6 +48,10 @@ header,
     padding: 25px;
     text-align: center;
 }
+#display-table{
+    padding: 10px;
+    text-align:left;
+}
 .form-container {
     padding-left: 10%;
     padding-right: 10%;
