@@ -21,11 +21,13 @@ async function login(){
     
    
 
-    if(response.status === 201){
-        document.getElementById("input-group mb-3").innerText = "Login successful";
-    }
     
-    else{
+    
+    if(response.status === 202){
+        window.location.replace("C:\Users\tslxg\OneDrive\Desktop\Project1\project-1-sosotune\Project1\FRONTEND\manager.html");
+        
+        
+    } else{
         document.getElementById("input-group mb-3").innerText = "Login Failed, please refresh the page!";
     }
 

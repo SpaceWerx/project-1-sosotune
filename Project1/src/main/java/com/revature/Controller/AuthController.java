@@ -2,6 +2,7 @@ package com.revature.Controller;
 
 import com.google.gson.Gson;
 import com.revature.DAO.UserDAO;
+import com.revature.Model.Role;
 import com.revature.Model.User;
 import com.revature.Service.AuthService;
 
@@ -25,11 +26,15 @@ public class AuthController {
 		ctx.sessionAttribute("currentUser", CurrentUser.getId());
 		currentUser = ctx.sessionAttribute("currentUser");
 		if(as.login(user.getUsername(), user.getPassword()) != null) {
+			if(user.getRole() == Role.EMPLOYEE) {
 			ctx.status(201);
-			ctx.result("Login Successful");
-			
-			
+			ctx.result("Login Successful");	
+			}else {
+			ctx.status(202);
+			ctx.result("Login Successful");}
+			System.out.println("manager");
 		}
+			
 		else {
 			ctx.status(404);
 			ctx.result("Password or username incorrect");
