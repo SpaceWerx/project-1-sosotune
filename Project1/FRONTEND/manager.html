@@ -44,26 +44,37 @@
                             Process Reimbursement
                         </a>
                     </button>
-                </div>
+                    <br>
+                </div >
+                <div id="tableRow" class="row">
                 <table id="display-employeetable" class="table table-stripped">
                     <thead>
                         <tr>
-                            <th scope="col">ID</th>
-                            <th scope="col">Username</th>
-                            <th scope="col" type="password">Password</th>
-                            <th scope="col">Role</th>
+                            <th >ID</th>
+                            <th >Author</th>
+                            <th >Resolver</th>
+                            <th >Type</th>
+                            <th >Description</th>
+                            <th >Amount</th>
+                            <th >Status</th>
                         </tr>
                     </thead>
+                    <tbody id="reimbursementbody">
+
+                    </tbody>
                     
                 </table>
-                <div id="display-buttons">
-                    <button class="btn btn-outline-dark">
-                        <a id="getemployees-anchor" href="./process.html">
-                            Get All Employees
+                    <button id="getreimbursements" class="btn btn-outline-dark">
+                        <a id="getreimbursements-anchor">
+                            Get All Reimbursements
                         </a>
                     </button>
                 </div>
             </div>
+            
         </div>
+        
         </body>
+        <script src="./server-request.js"></script>
+        <script src ="manager.js"></script>
         </html>
