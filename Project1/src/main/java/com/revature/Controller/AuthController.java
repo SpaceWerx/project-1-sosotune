@@ -5,11 +5,12 @@ import com.revature.DAO.UserDAO;
 import com.revature.Model.Role;
 import com.revature.Model.User;
 import com.revature.Service.AuthService;
+import com.revature.Service.UserService;
 
 import io.javalin.http.Handler;
 
 public class AuthController {
-	
+	UserService userService = new UserService();
 	AuthService as = new AuthService();
 	UserDAO userDAO = new UserDAO();
 	User user = new User();
@@ -23,16 +24,22 @@ public class AuthController {
 		
 		user = gson.fromJson(body, User.class);
 		CurrentUser = userDAO.getByUsername(user.getUsername());
+		if(CurrentUser!=null) {
 		ctx.sessionAttribute("currentUser", CurrentUser.getId());
-		currentUser = ctx.sessionAttribute("currentUser");
-		if(as.login(user.getUsername(), user.getPassword()) != null) {
-			if(user.getRole() == Role.EMPLOYEE) {
+		
+		currentUser = ctx.sessionAttribute("currentUser");}
+		if(as.login(CurrentUser.getUsername(), CurrentUser.getPassword()) != null) {
+			if(CurrentUser.getRole() == Role.EMPLOYEE) {
 			ctx.status(201);
 			ctx.result("Login Successful");	
-			}else {
+			System.out.println("Employee");
+			}
+			if(CurrentUser.getRole()==Role.MANAGER){
 			ctx.status(202);
-			ctx.result("Login Successful");}
-			System.out.println("manager");
+			ctx.result("Login Successful");
+			System.out.println("employee");
+			}
+			
 		}
 			
 		else {

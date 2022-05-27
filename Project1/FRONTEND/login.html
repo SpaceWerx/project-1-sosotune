@@ -32,22 +32,24 @@
                 <div class="form-container">
                     <form id="display-form">
                         <div class="input-group mb-3">
-                            <input class="form-control" id="Username" placeholder="Username" />                     
+                            <input class="form-control" name="username"id="Username" placeholder="Username" />                     
                             <span class="input-group-text"></span>
-                            <input type="password" class="form-control" id="Password" placeholder="Password"/>
+                            <input type="password" name="password" class="form-control" id="Password" placeholder="Password"/>
                         </div>
                         <div>
-                        <button id="loginButton" class="btn btn-primary" >
-                            <a id="login-anchor" href="manager.html">
+                        <button type="button" id="loginButton" class="btn btn-primary" >
+                            <a id="login-anchor" >
                             login
                             </a> 
+                            <!--login button takes username and password to authenticate with js-->
                         </button>
                         </div>
                         <div>                                    
-                        <button id="registerbutton" class="btn btn-primary" >
+                        <button  id="registerbutton" class="btn btn-primary" >
                             <a id="register-anchor" href="./register.html">
                                 register
                             </a>  
+                            <!--register button redirects to register html page-->
                         </button> 
                         </div>  
                     </form>         
