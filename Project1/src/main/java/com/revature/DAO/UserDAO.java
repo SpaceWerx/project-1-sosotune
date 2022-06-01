@@ -107,7 +107,7 @@ try(Connection connection = ConnectionFactoryUtility.getConnection()){
 		}
 	
 	///////////////////////////////////////////////
-	
+	//retrieves all users from database
 	public List<User> getAllUsers() {
 		
 try(Connection connection = ConnectionFactoryUtility.getConnection()){

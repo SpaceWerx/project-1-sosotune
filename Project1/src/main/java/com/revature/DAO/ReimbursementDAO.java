@@ -47,19 +47,19 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 			
 			String sql = "INSERT INTO ers_reimbursements (author, description, type, status, amount)"
 			+ "VALUES (?, ?, ?::type, ?::status, ?)"
-			+ "RETURNING ers_reimbursements.id";
+			+ "RETURNING ers_reimbursements.id"; //sql statement to create new reimbursement
 			
 			PreparedStatement preparedStatement = connection.prepareStatement(sql);
 			
-			preparedStatement.setInt(1, reimbursementToBeSubmitted.getAuthor());///check parameterindex
-			preparedStatement.setString(2, reimbursementToBeSubmitted.getDescription());
-			preparedStatement.setObject(3, reimbursementToBeSubmitted.getType().name());
-			preparedStatement.setObject(4, reimbursementToBeSubmitted.getStatus().name());
-			preparedStatement.setDouble(5, reimbursementToBeSubmitted.getAmount());
+			preparedStatement.setInt(1, reimbursementToBeSubmitted.getAuthor());//sets author to user who created reimbursement
+			preparedStatement.setString(2, reimbursementToBeSubmitted.getDescription());//add description
+			preparedStatement.setObject(3, reimbursementToBeSubmitted.getType().name());//set type
+			preparedStatement.setObject(4, reimbursementToBeSubmitted.getStatus().name());//sets status
+			preparedStatement.setDouble(5, reimbursementToBeSubmitted.getAmount());//set reimbursement amount
 			
-			ResultSet resultSet;
+			ResultSet resultSet;// object created to hold values
 			
-			if((resultSet = preparedStatement.executeQuery()) != null) {
+			if((resultSet = preparedStatement.executeQuery()) != null) {//assigns values if not null will add to database
 				
 				resultSet.next();
 				return resultSet.getInt(1);
@@ -142,7 +142,7 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 	}
 	
 	/////////////////////////////////////////
-	
+	//gets all reimbursements from dao and uses the input status to grab the correct reimbursements to add to the list
 	public List<Reimbursement> getByStatus(Status status){
 		List<Reimbursement> byStatus = new ArrayList<>();
 		for(Reimbursement r: getAllReimbursements()) {
@@ -158,7 +158,7 @@ public int create(Reimbursement reimbursementToBeSubmitted) {
 	}
 	
 	///////////////////////////////////////////////
-	
+	//
 	public List<Reimbursement> getAllReimbursements(){
 		
 		try(Connection connection = ConnectionFactoryUtility.getConnection()){

@@ -55,26 +55,26 @@ public class Launcher {
 			config -> {
 				config.enableCorsForAllOrigins();
 			}
-		).start(3000);
+		).start(3000);//creates java instance at port 3000
 		
-		app.post("/login", ac.getLoginHandler);//g2g
+		app.post("/login", ac.getLoginHandler);// allows user to login
 //		
-		app.post("/register", ac.getRegisterHandler);//g2g
+		app.post("/register", ac.getRegisterHandler);//allows new user to be added to database
 //		
-		app.get("/user", uc.getUsersHandler );//g2g
+		app.get("/user", uc.getUsersHandler );//gets all users from database
 		
-		app.get("/id", uc.getUserByIdHandler);//g2g	
+		app.get("/id", uc.getUserByIdHandler);//gets a user by id
 		
-		app.get("/reimbursementservice", rc.getReimbursementHandler);//g2g
+		app.get("/reimbursementservice", rc.getReimbursementHandler);//gets all reimbursements
 		
-		app.post("/submit", rc.submitHandler);//g2g
+		app.post("/submit", rc.submitHandler);//creates new reimbursement in database
 		
-		app.get("/reimbursement",rc.getReimbursementById);//g2gaddedjacksondependencytomaven
-		app.get("/usersreimbursement", rc.getByAuthorMethod);
+		app.get("/reimbursement",rc.getReimbursementById);//gets reimbursement by id
+		app.get("/usersreimbursement", rc.getByAuthorMethod);//by author
 		
-		app.put("/reimbursementupdate", rc.processHandler);//need to rework this
+		app.put("/reimbursementupdate", rc.processHandler);//lets reimbursement status be updated to approved or denied
 		
-		app.get("/status", rc.getByStatusHandler);//g2g
+		app.get("/status", rc.getByStatusHandler);//gets reimbursements by status
 
 	}
 }
